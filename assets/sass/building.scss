@@ -1,0 +1,134 @@
+@import "colors";
+
+body {
+    background: lighten($blue, 20%) none repeat scroll 0 0;
+    background-image:
+        repeating-linear-gradient(
+            -45deg, 
+            rgba(255,255,255,0.1), 
+            rgba(255,255,255,0.1) 150px, 
+            lighten($blue, 20%) 150px, 
+            lighten($blue, 20%) 300px
+        );
+}
+
+#building {
+    width: 100%;
+    position: relative;
+    margin-top: 300px;
+    .floor {
+        display: table;
+        background-attachment: scroll;
+        background-clip: border-box;
+        background-color: lighten($yellow, 5%);
+        background-origin: padding-box;
+        background-position: 0 0;
+        background-repeat: repeat;
+        background-size: auto auto;
+        border-bottom: 48px solid $grey-light;
+        .room {
+            display: inline-block;
+            background-color: $grey-light;
+            width: 140px;
+            height: 100px;
+            position: relative;
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                background-color: lighten($grey-light, 5%);
+                bottom: 82px;
+                height: 10px;
+                width: 68px;
+                box-shadow:
+                    0 0 0 0 lighten($white-min, 10%);
+            }
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                background-color: lighten($grey-light, 5%);
+                bottom: 10px;
+                height: 64px;
+                width: 50px;
+                background-image:
+                    linear-gradient(
+                        to bottom,
+                        darken($theme, 15%) 0,
+                        $theme 30px,
+                        transparent 31px, 
+                        transparent 35px, 
+                        $theme 36px
+                    );
+                box-shadow:
+                    // white panel
+                    0 0 0 5px lighten($white-min, 10%),
+                    1px 1px 2px 5px lighten($grey, 15%);
+            }
+            &:nth-child(odd) {
+                background-color: lighten($yellow, 13%);
+                &::after {
+                    left: 20px;
+                }
+                &::before {
+                    left: 11px;
+                    box-shadow:
+                        // top shade
+                        1px 1px 2px 1px lighten($grey, 20%),
+                        -12px -28px 0 12px darken($white-min, 5%),
+                        56px -28px 0 12px darken($white-min, 5%);
+                }
+            }
+            &:nth-child(even) {
+                background-color: lighten($yellow, 8%);
+                &::after {
+                    right: 20px;
+                }
+                &::before {
+                    right: 11px;
+                    box-shadow:
+                        // window shade
+                        1px 1px 2px 1px lighten($grey, 20%),
+                        // top shade
+                        -58px -28px 0 12px darken($white-min, 5%),
+                        10px -28px 0 12px darken($white-min, 5%),
+                        1px -28px 2px 5px lighten($grey, 15%);
+                }   
+            }
+        }
+    }
+}
+
+header {
+    position: fixed;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #cdcdcd;
+    background-image:
+        radial-gradient(
+            circle at 200px 330px, 
+            #567 80px,
+            rgba(0, 0, 0, 0.1) 80px,
+            rgba(0, 0, 0, 0.1) 180px,
+            #567 180px,
+            #567 200px,
+            transparent 200px
+        ),
+        radial-gradient(
+            circle at 202px 330px, 
+            rgba(0,0,0,0.2) 200px,
+            transparent 210px
+        ),
+}
+
+footer {
+    background-color: $green;
+    background-image: 
+        linear-gradient(
+            to bottom, 
+            lighten($green, 10%), 
+            $green 120px
+        );
+    height: 160px;
+    display: block;
+}

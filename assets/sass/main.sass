@@ -1,0 +1,29 @@
+// font
+$font-family: Roboto, "Segoe UI", "open sans", arial, sans-serif
+
+@import "colors"
+@import "alchemy"
+@import "columns"
+
+@import "drawer"
+
+=hide($a:hidden, $b:none, $c:0)
+	visibility: $a
+	display: $b
+	opacity: $c
+.clear
+	display: table
+	clear: both
+
+// default styling
+*, *:before, *:after
+	box-sizing: border-box
+body
+	font-family: "open sans", calibri, arial
+	overflow-x: auto
+	height: 100%
+	padding: 0
+	margin: 0
+a, input, label, input + label
+	@include transitions(0.3s)
+	cursor: pointer
